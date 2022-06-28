@@ -22,10 +22,24 @@ class room{
             res.status(500).send({apiStatus:false, message:e.message})
         }
     }
+    // user & Room
+    static myrooms = async(req,res)=>{
+    
+        try{
+           // await roomModel.find({userId:req.user._id})
+            await req.user.populate("myrooms")
+            res.status(200).send({data:req.user.myrooms})
+        }
+        catch(e){
+            res.status(500).send({err:e.message})
+        }
+    }
+    //hotel & Room
     static rooms = async(req,res)=>{
         
         try{
-            await req.hotel.populate("rooms")
+           // await req.hotel.populate("rooms")
+          await roomModel.find({hotelId:req.hotel._id}).populate("rooms")
             
             res.status(200).send({data:req.hotel.rooms})
         }

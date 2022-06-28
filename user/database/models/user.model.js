@@ -31,13 +31,13 @@ const userSchema = new mongoose.Schema({
     }, 
     password:{
         type:String,
-        required: true,
+       // required: true,
         trim:true,
         match:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
     }, 
     phone:{
         type:String,
-        required: true,
+       // required: true,
         trim:true
     }, 
     userType:{
@@ -56,7 +56,11 @@ const userSchema = new mongoose.Schema({
 {
     timestamps:true
 })
-
+userSchema.virtual("myrooms", {
+    ref:"room",
+    localField:"_id",
+    foreignField:"userId"
+})
 userSchema.methods.toJSON= function(){
     const user = this.toObject()
     delete user.__v

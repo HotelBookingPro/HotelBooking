@@ -5,14 +5,30 @@ const roomSchema = mongoose.Schema({
         ref:"hotel",
         required:true
     },
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    },
     roomNo:{
         type:Number,
-        required:true,
+       // required:true,
         
     },
     bedNo:{
         type:Number,
        // required:true,
+        
+    },
+    name:{
+        type:String,
+        required:true,
+        
+    },
+    
+    price:{
+        type: Number,
+        required: true
         
     },
     floorNo:{
