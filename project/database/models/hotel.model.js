@@ -24,15 +24,15 @@ const hotelSchema = mongoose.Schema({
     }
 },
 {timeStamps:true})
-hotelSchema.virtual("rooms", {
+hotelSchema.virtual("myRooms", {
     ref:"room",
     localField:"_id",
     foreignField:"hotelId"
 })
-hotelSchema.methods.toJSON= function(){
-    const hotel = this.toObject()
+// hotelSchema.methods.toJSON= function(){
+//     const hotel = this.toObject()
   
-    return hotel
-}
+//     return hotel
+// }
 const hotel= mongoose.model("hotel", hotelSchema)
 module.exports = hotel

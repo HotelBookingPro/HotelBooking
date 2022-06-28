@@ -5,11 +5,11 @@ const roomSchema = mongoose.Schema({
         ref:"hotel",
         required:true
     },
-    userId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User",
-        required:true
-    },
+    // userId:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:"User",
+    //     required:true
+    // },
     roomNo:{
         type:Number,
        // required:true,

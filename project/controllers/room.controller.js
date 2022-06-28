@@ -8,7 +8,8 @@ class room{
         try{
             const roomData = new roomModel({
                 ...req.body,
-                hotelId: req.body.hotelId
+                hotelId: req.body.hotelId,
+                // userId: req.user.userId
             })
             // res.send(roomData)
             await roomData.save()
@@ -23,25 +24,31 @@ class room{
         }
     }
     // user & Room
-    static myrooms = async(req,res)=>{
+    // static myrooms = async(req,res)=>{
     
-        try{
-           // await roomModel.find({userId:req.user._id})
-            await req.user.populate("myrooms")
-            res.status(200).send({data:req.user.myrooms})
-        }
-        catch(e){
-            res.status(500).send({err:e.message})
-        }
-    }
+    //     try{
+    //        // await roomModel.find({userId:req.user._id})
+    //         await req.user.populate("myrooms")
+    //         res.status(200).send({data:req.user.myrooms})
+    //     }
+    //     catch(e){
+    //         res.status(500).send({err:e.message})
+    //     }
+    // }
     //hotel & Room
     static rooms = async(req,res)=>{
         
         try{
+            // roomModel.find({hotelId:req.hotel._id})
            // await req.hotel.populate("rooms")
-          await roomModel.find({hotelId:req.hotel._id}).populate("rooms")
+          await roomModel.find().populate({path:"myRooms" , strictPopulate: false}).exec(function(err, data) {
+            if (err)
+              res.send(err);
+      
+            res.send(data);
+          });
             
-            res.status(200).send({data:req.hotel.rooms})
+            // res.status(200).send({data:req.hotel.myRooms})
         }
         catch(e){
             res.status(500).send({err:e.message})

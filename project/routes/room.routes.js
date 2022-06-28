@@ -5,7 +5,7 @@ const upload = multer({ dest: 'images/' })
 const router = require("express").Router()
 router.post("/add", room.add)
 router.get("/rooms", room.rooms)
-router.get("/myrooms", room.myrooms)
+// router.get("/myrooms", room.myrooms)
 
 router.patch('/profile', upload.single('profile'),room.uploadImage)
 
