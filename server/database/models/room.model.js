@@ -45,6 +45,14 @@ const roomSchema = mongoose.Schema({
     }
 },
 {timeStamps:true})
-
+// roomSchema.virtual("cartRoom", {
+//     ref:"cart",
+//     localField:"_id",
+//     foreignField:"roomId"
+// })
+// roomSchema.methods.toJSON= function(){
+//     const room = this.toObject()
+//     return room
+// }
 const room= mongoose.model("room", roomSchema)
 module.exports = room
