@@ -6,9 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalService {
+
   userUrl = "http://localhost:3000/user"
 
   public isLogin : boolean = false
+  public UserData : any
 
   constructor(private http : HttpClient) { }
 
@@ -22,6 +24,6 @@ export class GlobalService {
     const body = {
       "lang" : 2
    }
-    return this.http.post(`${this.userUrl}/me` , body  )
+    return this.http.post(`${this.userUrl}/auth` , body  )
   }
 }

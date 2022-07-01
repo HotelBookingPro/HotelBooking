@@ -13,11 +13,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
   handleRegister(form:NgForm){
     console.log(form)
     console.log(this.model)
-    this.model.role = 5
     if(form.valid){
       this.global.register(this.model).subscribe(data=>{
         console.log(data)
@@ -25,5 +23,4 @@ export class RegisterComponent implements OnInit {
 
     }
   }
-
 }

@@ -6,15 +6,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+
+import { NavbarComponent } from './partials/navbar/navbar.component';
+import { FooterComponent } from './partials/footer/footer.component';
+import { HeaderComponent } from './partials/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
