@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const validator = require("validator")
 const bcryptjs=require("bcryptjs")
 const userSchema = new mongoose.Schema({
+  
     first_name:{
         type:String,
         required: true,
@@ -56,8 +57,9 @@ const userSchema = new mongoose.Schema({
 {
     timestamps:true
 })
-userSchema.virtual("myrooms", {
-    ref:"room",
+
+userSchema.virtual("myOrder", {
+    ref:"Order",
     localField:"_id",
     foreignField:"userId"
 })

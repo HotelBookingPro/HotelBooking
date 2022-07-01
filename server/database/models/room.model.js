@@ -5,11 +5,7 @@ const roomSchema = mongoose.Schema({
         ref:"hotel",
         required:true
     },
-    // userId:{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:"User",
-    //     required:true
-    // },
+  
     roomNo:{
         type:Number,
        // required:true,
@@ -45,11 +41,12 @@ const roomSchema = mongoose.Schema({
     }
 },
 {timeStamps:true})
-// roomSchema.virtual("cartRoom", {
-//     ref:"cart",
-//     localField:"_id",
-//     foreignField:"roomId"
-// })
+
+roomSchema.virtual("orderRoom", {
+    ref:"Order",
+    localField:"_id",
+    foreignField:"roomId"
+})
 // roomSchema.methods.toJSON= function(){
 //     const room = this.toObject()
 //     return room

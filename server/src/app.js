@@ -22,4 +22,7 @@ app.use("/hotel",hotelRoutes)
 //cart
 const cartRoutes=require("../routes/cart.route")
 app.use("/cart",cartRoutes)
+//order
+const orderRoutes=require("../routes/order.route")
+app.use("/order",orderRoutes)
 module.exports   = app

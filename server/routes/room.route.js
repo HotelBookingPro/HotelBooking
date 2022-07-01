@@ -6,6 +6,7 @@ const router = require("express").Router()
 router.post("/add", room.add)
 router.get("/rooms", room.rooms)
 // router.get("/myrooms", room.myrooms)
+router.get("/all", room.getAllRooms)
 
 router.patch('/profile', upload.single('profile'),room.uploadImage)
 

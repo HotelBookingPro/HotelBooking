@@ -67,5 +67,18 @@ class room{
             res.send(e.message)
         }
       }
+      static getAllRooms = async(req, res) => {
+        try{
+            const allRooms = await roomModel.find()
+            res.status(200).send({
+                apiStatus:true,
+                data:allRooms,
+                message:"data fetched"
+            })
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, error: e, message:e.message})
+        }
+    }
 }
 module.exports = room
