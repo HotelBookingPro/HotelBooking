@@ -5,17 +5,17 @@ const userSchema = new mongoose.Schema({
   
     first_name:{
         type:String,
-        required: true,
+       // required: true,
         trim:true
     }, 
     last_name:{
         type:String,
-        required: true,
+      //  required: true,
         trim:true
     },
     user_name:{
         type:String,
-        required: true,
+       required: true,
         trim:true
     },
     email:{
@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
     }, 
     password:{
         type:String,
-       required: true,
+      // required: true,
         trim:true,
         match:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
     }, 
