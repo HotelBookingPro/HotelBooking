@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           // this.router.navigate(['posts' , 2])
           localStorage.setItem("token" , res.access_token)
           this.global.isLogin = true
-          this.router.navigateByUrl("posts/4")
+          // this.router.navigateByUrl("posts/4")
         }
 
       }, (err)=>{

@@ -17,6 +17,12 @@ const hotelSchema = mongoose.Schema({
     price:{
         type:Number
     },
+    bookings:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'order'
+        }
+    ],
     address:{
         type:String,
        // required:true,

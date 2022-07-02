@@ -5,7 +5,10 @@ const roomSchema = mongoose.Schema({
         ref:"hotel",
         required:true
     },
-  
+    userId:{
+        type: String,
+        default: null
+    },
     roomNo:{
         type:Number,
        // required:true,
@@ -43,7 +46,7 @@ const roomSchema = mongoose.Schema({
 {timeStamps:true})
 
 roomSchema.virtual("orderRoom", {
-    ref:"Order",
+    ref:"order",
     localField:"_id",
     foreignField:"roomId"
 })
