@@ -3,18 +3,28 @@ const orderSchema = mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
-        required:true
+        // required:true
     },
-    roomId:{
+    roomName:{
+        type: String
+    },
+    hotelId: {
         type:mongoose.Schema.Types.ObjectId,
-        ref:"room",
-        required:true
+        ref:"hotel",
+        // required:true 
     },
   
-    date:{
+    fromDate:{
         type:Date,
        // required:true
-       
+    },
+    toDate:{
+        type:Date,
+       // required:true
+    },
+    cost:{
+        type: Number,
+        default: 0
     }
 },
 {timeStamps:true})

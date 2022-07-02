@@ -29,7 +29,7 @@ class User {
             const user = new userModel(req.body);
             user.userType="user";
             await user.save();
-            sendEmailMe(user.email, "hello");
+            sendRegisterEmail(user.email, "Hello ✔ Welcome to our hotel boooking website");
             res.status(200).send({
                 apiStatus: true,
                 data:user,
