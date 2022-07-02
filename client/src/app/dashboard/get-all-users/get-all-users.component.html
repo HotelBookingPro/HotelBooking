@@ -1,0 +1,22 @@
+
+<app-add-admin (sendingUser)="handleEvent($event)"></app-add-admin>
+
+<table class="table" *ngIf="users.length > 0">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.userName}}</td>
+            <td>{{user.userEmail}}</td>
+            <td>
+              
+           
+               <button class="btn btn-warning" routerLink="{{singleUser.id}}">Show Single user</button>  
+          </td>
+        </tr>
+    </tbody>
+</table> 
